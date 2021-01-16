@@ -3,11 +3,9 @@ import * as ReactDOM from 'react-dom';
 
 import { HomeLayout } from './@layouts/HomeLayout';
 
-const App: React.FC = ({}) => {
-    return (
-        <HomeLayout />
-    );
-};
+const App: React.FC = ({}) => (
+    <HomeLayout />
+);
 
 const root = document.getElementById('root');
 if (root) {

@@ -1,12 +1,14 @@
 module.exports = {
+    plugins: [
+        'react',
+    ],
     parserOptions: {
+        ecmaVersion: 6,
+        sourceType: 'module',
         ecmaFeatures: {
             jsx: true,
         },
     },
-    plugins: [
-        'react',
-    ],
     extends: [
         'airbnb',
     ],
@@ -16,10 +18,10 @@ module.exports = {
         es6: true,
     },
     rules: {
-        indent: ['error', 4],
+        indent: 'off',
+        camelcase: 'off',
         'no-tabs': 'off',
         'eol-last': 'warn',
-        camelcase: 'warn',
         'comma-dangle': 'warn',
         'comma-spacing': 'warn',
         'max-len': ['error', {
@@ -27,7 +29,7 @@ module.exports = {
         }],
         'linebreak-style': 'off',
         'jsx-quotes': ['warn', 'prefer-single'],
-        'arrow-body-style': ['warn', 'always'],
+        'arrow-body-style': ['warn', 'as-needed'],
         'prefer-promise-reject-errors': 'off',
         'prefer-const': ['warn', {
             destructuring: 'all',
@@ -62,17 +64,22 @@ module.exports = {
     overrides: [
         {
             files: ['*.ts', '*.tsx'],
-            extends: [
-                'plugin:@typescript-eslint/recommended',
-            ],
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                project: './tsconfig.json',
+            },
             plugins: [
                 '@typescript-eslint/eslint-plugin',
             ],
-            parser: '@typescript-eslint/parser',
+            extends: [
+                'plugin:@typescript-eslint/recommended',
+            ],
             rules: {
                 '@typescript-eslint/no-empty-interface': 'off',
                 '@typescript-eslint/ban-types': 'off',
-                '@typescript-eslint/no-empty-function': 'off',
+                '@typescript-eslint/indent': ['warn', 4],
+                '@typescript-eslint/no-floating-promises': 'off',
+                '@typescript-eslint/await-thenable': 'off',
             },
         },
     ],
