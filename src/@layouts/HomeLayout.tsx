@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { FC } from 'react';
 import { IncrementButton } from '../@components/IncrementButton';
 
-const HomeLayout: React.FC = ({}) => {
+const HomeLayout: FC = () => {
     return (
         <div>
             <IncrementButton />

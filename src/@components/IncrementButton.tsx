@@ -1,21 +1,16 @@
-import * as React from 'react';
+import { FC, useState } from 'react';
 
-const IncrementButton: React.FC = ({}) => {
-    const [count, setCount] = React.useState<number>(0);
+const IncrementButton: FC = () => {
+    const [count, setCount] = useState<number>(0);
     function increment() {
         setCount(count + 1);
     }
     return (
         <div>
-            <button
-                type={ 'button' }
-                onClick={ increment }
-            >
+            <button type={'button'} onClick={increment}>
                 {'increment'}
             </button>
-            <span>
-                {count.toString()}
-            </span>
+            <span>{count.toString()}</span>
         </div>
     );
 };
